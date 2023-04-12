@@ -2,10 +2,17 @@ package com.delminiusdevs.elektra.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val BackgroundLightColor = Color(color = 0xFFE2E8F0)
+val BackgroundDarkColor = Color(color = 0xFF0F172A)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val PrimaryLightColor = Color(color = 0xFF3730A3)
+val PrimaryDarkColor = Color(color = 0xFFA5B4FC)
+
+val ErrorLightColor = Color(color = 0xFFAF3800)
+val ErrorDarkColor = Color(color = 0xFFAF3800)
+
+val SurfaceLightColor = Color(color = 0xFFFFFFFF)
+val SurfaceDarkColor = Color(color = 0xFF1E293B)
+
+val TextLightColor = Color(color = 0xFF080D18)
+val TextDarkColor = Color(color = 0xFFFFFFFF)
