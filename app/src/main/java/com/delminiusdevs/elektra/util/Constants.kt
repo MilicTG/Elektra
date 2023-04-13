@@ -15,4 +15,11 @@ object Constants {
     // Navbar icon titles
     const val OUTAGES_ICON_TITLE = "Nestanci"
     const val BRANCHES_ICON_TITLE = "Poslovnice"
+
+    //Base url
+    const val BASE_URL = "https://api.ephzhb.ba"
+
+    //Other
+    const val DATE_PATTERN = "EEEE dd.MM.yyyy"
+    const val DATABASE_NAME = "electra_database"
 }
