@@ -1,4 +1,4 @@
-package com.delminiusdevs.elektra.ui.theme
+package com.delminiusdevs.elektra.presentation.ui.theme
 
 import androidx.compose.ui.unit.dp
 
