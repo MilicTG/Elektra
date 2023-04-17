@@ -18,7 +18,6 @@ class OutagesViewModel @Inject constructor(
 ): ViewModel() {
     var state by mutableStateOf(OutagesState())
 
-
     init {
         getDatesForThreeDays()
         getOutagesForThreeDays()
