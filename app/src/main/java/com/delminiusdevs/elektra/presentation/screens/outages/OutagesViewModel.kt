@@ -63,7 +63,7 @@ class OutagesViewModel @Inject constructor(
 
                     is Resource.Loading -> {
                         state = state.copy(
-                            isLoading = result.isLoading
+                            isLoading = true
                         )
                     }
                 }
@@ -93,7 +93,7 @@ class OutagesViewModel @Inject constructor(
 
                     is Resource.Loading -> {
                         state = state.copy(
-                            isLoading = result.isLoading
+                            isLoading = true
                         )
                     }
                 }
