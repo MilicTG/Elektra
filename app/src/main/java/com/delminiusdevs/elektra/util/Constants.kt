@@ -20,6 +20,7 @@ object Constants {
     const val BASE_URL = "https://api.ephzhb.ba"
 
     //Other
-    const val DATE_PATTERN = "EEEE dd.MM.yyyy"
+    const val DATE_PATTERN = "dd.MM.yyyy"
+    const val DAY_PATTERN = "EEEE"
     const val DATABASE_NAME = "electra_database"
 }

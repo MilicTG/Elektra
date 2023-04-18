@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.Flow
 interface PowerOutagesRepository {
 
     suspend fun getPowerCutDataForSpecificDate(
-        date: String
+        date: String,  dateCode: String
     ): Flow<Resource<List<Outages>>>
 }

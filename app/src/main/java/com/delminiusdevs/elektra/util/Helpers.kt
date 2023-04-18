@@ -1,6 +1,7 @@
 package com.delminiusdevs.elektra.util
 
 import com.delminiusdevs.elektra.util.Constants.DATE_PATTERN
+import com.delminiusdevs.elektra.util.Constants.DAY_PATTERN
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -27,6 +28,23 @@ fun getDateOrDayForSpecificDay(day: String): String {
         "thirdDate" -> calendar.apply {
             add(Calendar.DAY_OF_YEAR, 2)
         }.time.toString(format = DATE_PATTERN)
+
+        else -> ""
+    }
+}
+
+fun getDayForSpecificDay(day: String): String {
+    val calendar = Calendar.getInstance()
+
+    return when (day) {
+        "firstDate" -> calendar.time.toString(format = DAY_PATTERN)
+        "secondDate" -> calendar.apply {
+            add(Calendar.DAY_OF_YEAR, 1)
+        }.time.toString(format = DAY_PATTERN)
+
+        "thirdDate" -> calendar.apply {
+            add(Calendar.DAY_OF_YEAR, 2)
+        }.time.toString(format = DAY_PATTERN)
 
         else -> ""
     }

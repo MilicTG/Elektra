@@ -9,6 +9,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.delminiusdevs.elektra.presentation.composables.appbar.OutagesAppbar
 import com.delminiusdevs.elektra.presentation.composables.cards.OutagesCard
@@ -24,6 +25,9 @@ fun OutagesScreen(
     val state = viewModel.state
 
     Scaffold(
+        modifier = Modifier
+            .fillMaxSize()
+        .nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             OutagesAppbar(
                 title = "Najavljeni nestanci",
@@ -61,10 +65,9 @@ fun OutagesScreen(
                             end = NORMAL_PADDING
                         )
                 ) {
-                    items(count = state.firstDayOutages.size) { index ->
+                    items(count = state.outagesComplete.size) { index ->
                         OutagesCard(
-                            date = state.firstDayDate,
-                            outages = state.firstDayOutages[index]
+                            outages = state.outagesComplete[index]
                         )
                     }
                 }
