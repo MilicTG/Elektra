@@ -47,7 +47,6 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
-        coreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = '17'
@@ -136,9 +135,6 @@ dependencies {
 
     // Splash API
     implementation 'androidx.core:core-splashscreen:1.0.0'
-
-    //For date time
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
 
     // Accompanist
     implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist_version"
