@@ -18,10 +18,19 @@ import javax.inject.Inject
 class OutagesViewModel @Inject constructor(
     private val outagesUseCases: OutagesUseCases,
 ) : ViewModel() {
+
     var state by mutableStateOf(OutagesState())
 
     init {
         getOutagesForThreeDays()
+    }
+
+    fun onEvent(event: OutagesEvent){
+        when(event){
+            OutagesEvent.OnRefreshTap -> {
+                getOutagesForThreeDays()
+            }
+        }
     }
 
     private fun getOutagesForThreeDays() {

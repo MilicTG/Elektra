@@ -13,6 +13,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.delminiusdevs.elektra.presentation.composables.appbar.OutagesAppbar
 import com.delminiusdevs.elektra.presentation.composables.cards.OutagesCard
+import com.delminiusdevs.elektra.presentation.composables.containers.LoadingContainer
 import com.delminiusdevs.elektra.presentation.ui.theme.NORMAL_PADDING
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -27,7 +28,7 @@ fun OutagesScreen(
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
-        .nestedScroll(scrollBehavior.nestedScrollConnection),
+            .nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             OutagesAppbar(
                 title = "Najavljeni nestanci",
@@ -36,7 +37,7 @@ fun OutagesScreen(
 
                 },
                 onRefreshClicked = {
-
+                    viewModel.onEvent(OutagesEvent.OnRefreshTap)
                 },
                 onSettingsClicked = {
 
@@ -47,11 +48,24 @@ fun OutagesScreen(
 
         when {
             state.isLoading -> {
-                Text(text = "Loading")
+                LoadingContainer(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(
+                            top = paddingValues.calculateTopPadding(),
+                            start = NORMAL_PADDING,
+                            end = NORMAL_PADDING
+                        ),
+                    title = "Učitavanje..."
+                )
             }
 
             state.isError -> {
                 Text(text = state.errorMessage)
+            }
+
+            state.outagesComplete.isEmpty() -> {
+                Text(text = "Prazno")
             }
 
             else -> {
