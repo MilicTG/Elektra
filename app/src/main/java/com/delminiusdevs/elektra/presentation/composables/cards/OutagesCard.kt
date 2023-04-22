@@ -48,7 +48,7 @@ fun OutagesCard(
             Text(
                 text = outages.dayOfOutage.toString().uppercase(),
                 style = TextStyle(
-                    fontSize = MaterialTheme.typography.bodySmall.fontSize,
+                    fontSize = MaterialTheme.typography.labelSmall.fontSize,
                     color = MaterialTheme.colorScheme.onBackground,
                     textAlign = TextAlign.Center,
                 )
@@ -60,6 +60,7 @@ fun OutagesCard(
                 text = outages.dateOfOutage.toString(),
                 style = TextStyle(
                     fontSize = MaterialTheme.typography.bodySmall.fontSize,
+                    fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.onBackground,
                     textAlign = TextAlign.Center,
                 )
@@ -129,37 +130,7 @@ fun OutagesCard(
             ) {
 
                 Text(
-                    text = "Najavljeni nestanak od: ",
-                    style = TextStyle(
-                        fontSize = MaterialTheme.typography.bodySmall.fontSize,
-                        fontWeight = FontWeight.Normal,
-                        color = MaterialTheme.colorScheme.primary,
-                        textAlign = TextAlign.Start,
-                    )
-                )
-
-                Text(
-                    text = outages.timeFrom.uppercase(),
-                    style = TextStyle(
-                        fontSize = MaterialTheme.typography.bodySmall.fontSize,
-                        fontWeight = FontWeight.Normal,
-                        color = MaterialTheme.colorScheme.primary,
-                        textAlign = TextAlign.Start,
-                    )
-                )
-
-                Text(
-                    text = " do ",
-                    style = TextStyle(
-                        fontSize = MaterialTheme.typography.bodySmall.fontSize,
-                        fontWeight = FontWeight.Normal,
-                        color = MaterialTheme.colorScheme.primary,
-                        textAlign = TextAlign.Start,
-                    )
-                )
-
-                Text(
-                    text = outages.timeTo.uppercase(),
+                    text = "Najavljeni nestanak od: ${outages.timeFrom} do ${outages.timeTo}",
                     style = TextStyle(
                         fontSize = MaterialTheme.typography.bodySmall.fontSize,
                         fontWeight = FontWeight.Normal,
