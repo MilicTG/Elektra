@@ -24,6 +24,7 @@ fun BranchesScreen() {
             )
         }
     ) {
+
         Text(text = "Branches")
     }
 }
