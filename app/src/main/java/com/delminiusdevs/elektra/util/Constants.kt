@@ -7,10 +7,12 @@ object Constants {
     const val BASE_SCREEN_ROUTE = "base_screen_route"
     const val OUTAGES_SCREEN_ROUTE = "outages_screen_route"
     const val BRANCHES_SCREEN_ROUTE = "branches_screen_route"
+    const val ADD_BRANCHES_SCREEN_ROUTE = "add_branches_screen_route"
 
     // Routes
     const val APP_ROUTE = "app_route"
     const val BASE_ROUTE = "base_route"
+    const val BRANCHES_ROUTE = "branches_route"
 
     // Navbar icon titles
     const val OUTAGES_ICON_TITLE = "Nestanci"

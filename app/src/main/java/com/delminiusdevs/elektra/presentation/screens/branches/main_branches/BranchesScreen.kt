@@ -22,6 +22,7 @@ import com.delminiusdevs.elektra.presentation.ui.theme.NORMAL_PADDING
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BranchesScreen(
+    navigateToAddBranchesScreen: () -> Unit,
     viewModel: BranchesViewModel = hiltViewModel(),
 ) {
 
@@ -40,7 +41,9 @@ fun BranchesScreen(
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = {  },
+                onClick = {
+                    navigateToAddBranchesScreen()
+                },
                 containerColor = MaterialTheme.colorScheme.primary,
                 contentColor = MaterialTheme.colorScheme.onPrimary,
             ) {

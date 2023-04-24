@@ -1,6 +1,8 @@
 package com.delminiusdevs.elektra.di
 
+import com.delminiusdevs.elektra.data.repository.BranchesRepositoryImpl
 import com.delminiusdevs.elektra.data.repository.PowerOutagesRepositoryImpl
+import com.delminiusdevs.elektra.domain.repository.BranchesRepository
 import com.delminiusdevs.elektra.domain.repository.PowerOutagesRepository
 import dagger.Binds
 import dagger.Module
@@ -15,6 +17,12 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindOutagesRepository(
-        powerOutagesRepositoryImpl: PowerOutagesRepositoryImpl
+        powerOutagesRepositoryImpl: PowerOutagesRepositoryImpl,
     ): PowerOutagesRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindBranchesRepository(
+        branchesRepositoryImpl: BranchesRepositoryImpl,
+    ): BranchesRepository
 }
