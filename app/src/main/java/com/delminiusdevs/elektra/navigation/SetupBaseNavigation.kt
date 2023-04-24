@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.delminiusdevs.elektra.presentation.screens.branches.BranchesScreen
+import com.delminiusdevs.elektra.presentation.screens.branches.main_branches.BranchesScreen
 import com.delminiusdevs.elektra.presentation.screens.outages.OutagesScreen
 import com.delminiusdevs.elektra.util.Constants.BASE_ROUTE
 

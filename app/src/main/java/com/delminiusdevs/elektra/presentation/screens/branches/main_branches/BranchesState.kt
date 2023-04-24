@@ -1,4 +1,4 @@
-package com.delminiusdevs.elektra.presentation.screens.branches
+package com.delminiusdevs.elektra.presentation.screens.branches.main_branches
 
 import com.delminiusdevs.elektra.domain.model.BranchOffice
 

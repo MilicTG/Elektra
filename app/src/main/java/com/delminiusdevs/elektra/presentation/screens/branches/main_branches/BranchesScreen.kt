@@ -1,4 +1,4 @@
-package com.delminiusdevs.elektra.presentation.screens.branches
+package com.delminiusdevs.elektra.presentation.screens.branches.main_branches
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
