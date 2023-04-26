@@ -2,7 +2,7 @@ package com.delminiusdevs.elektra.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val BackgroundLightColor = Color(color = 0xFFF1F2F2)
+val BackgroundLightColor = Color(color = 0xFFE6E7E8)
 val BackgroundDarkColor = Color(color = 0xFF231F20)
 
 val PrimaryLightColor = Color(color = 0xFFFF6B00)

@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Text
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBarDefaults
@@ -16,6 +15,8 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.delminiusdevs.elektra.presentation.composables.appbar.OutagesAppbar
 import com.delminiusdevs.elektra.presentation.composables.cards.OutagesCard
+import com.delminiusdevs.elektra.presentation.composables.containers.EmptyOutagesContainer
+import com.delminiusdevs.elektra.presentation.composables.containers.ErrorContainer
 import com.delminiusdevs.elektra.presentation.composables.containers.LoadingContainer
 import com.delminiusdevs.elektra.presentation.ui.theme.NORMAL_PADDING
 
@@ -64,11 +65,29 @@ fun OutagesScreen(
             }
 
             state.isError -> {
-                Text(text = state.errorMessage)
+                ErrorContainer(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(
+                            top = paddingValues.calculateTopPadding(),
+                            start = NORMAL_PADDING,
+                            end = NORMAL_PADDING
+                        ),
+                    title = state.errorMessage
+                )
             }
 
             state.outagesComplete.isEmpty() -> {
-                Text(text = "Prazno")
+                EmptyOutagesContainer(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(
+                            top = paddingValues.calculateTopPadding(),
+                            start = NORMAL_PADDING,
+                            end = NORMAL_PADDING
+                        ),
+                    title = "Nema najavljenih radova"
+                )
             }
 
             else -> {

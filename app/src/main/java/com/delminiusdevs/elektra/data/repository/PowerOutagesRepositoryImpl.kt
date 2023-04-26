@@ -7,7 +7,6 @@ import com.delminiusdevs.elektra.domain.repository.PowerOutagesRepository
 import com.delminiusdevs.elektra.util.Resource
 import com.delminiusdevs.elektra.util.getDateOrDayForSpecificDay
 import com.delminiusdevs.elektra.util.getDayForSpecificDay
-import com.delminiusdevs.elektra.util.getDayFromDateString
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -18,7 +17,10 @@ class PowerOutagesRepositoryImpl @Inject constructor(
     private val electraApi: ElectraApi,
 ) : PowerOutagesRepository {
 
-    override suspend fun getPowerCutDataForSpecificDate(date: String, dateCode: String): Flow<Resource<List<Outages>>> =
+    override suspend fun getPowerCutDataForSpecificDate(
+        date: String,
+        dateCode: String,
+    ): Flow<Resource<List<Outages>>> =
         flow {
             emit(Resource.Loading(isLoading = true))
 
