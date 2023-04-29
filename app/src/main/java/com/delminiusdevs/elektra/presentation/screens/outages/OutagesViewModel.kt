@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.delminiusdevs.elektra.domain.use_cases.outages_use_cases.OutagesUseCases
 import com.delminiusdevs.elektra.util.Resource
 import com.delminiusdevs.elektra.util.getDateOrDayForSpecificDay
-import com.delminiusdevs.elektra.util.getDayForSpecificDay
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -25,8 +24,8 @@ class OutagesViewModel @Inject constructor(
         getOutagesForThreeDays()
     }
 
-    fun onEvent(event: OutagesEvent){
-        when(event){
+    fun onEvent(event: OutagesEvent) {
+        when (event) {
             OutagesEvent.OnRefreshTap -> {
                 getOutagesForThreeDays()
             }
@@ -56,7 +55,6 @@ class OutagesViewModel @Inject constructor(
                         result.data?.let { outages ->
                             state = state.copy(
                                 firstDayOutages = outages,
-                                outagesComplete = state.outagesComplete.plus(outages)
                             )
                         }
                     }
@@ -86,7 +84,6 @@ class OutagesViewModel @Inject constructor(
                         result.data?.let { outages ->
                             state = state.copy(
                                 secondDayOutages = outages,
-                                outagesComplete = state.outagesComplete.plus(outages)
                             )
                         }
                     }
@@ -115,10 +112,10 @@ class OutagesViewModel @Inject constructor(
                     is Resource.Success -> {
                         result.data?.let { outages ->
                             state = state.copy(
-                                thirdDayOutages =outages,
-                                outagesComplete = state.outagesComplete.plus(outages)
+                                thirdDayOutages = outages,
                             )
                         }
+                        completeTheOutagesList()
                     }
 
                     is Resource.Error -> {
@@ -140,14 +137,13 @@ class OutagesViewModel @Inject constructor(
         }
     }
 
-    private fun resetState() {
+    private fun completeTheOutagesList() {
         state = state.copy(
-            firstDayOutages = emptyList(),
-            secondDayOutages = emptyList(),
-            thirdDayOutages = emptyList(),
-            isLoading = false,
-            isError = false
+            outagesComplete = emptyList()
+        )
+
+        state = state.copy(
+            outagesComplete = state.firstDayOutages + state.secondDayOutages + state.thirdDayOutages
         )
     }
-
 }

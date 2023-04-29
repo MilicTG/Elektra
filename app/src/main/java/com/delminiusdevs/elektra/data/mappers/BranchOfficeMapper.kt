@@ -9,3 +9,10 @@ fun BranchOfficeDto.toBranchOffice(): BranchOffice {
         name = name
     )
 }
+
+fun BranchOffice.toBranchOfficeDto(): BranchOfficeDto {
+    return BranchOfficeDto(
+        id = id,
+        name = name
+    )
+}

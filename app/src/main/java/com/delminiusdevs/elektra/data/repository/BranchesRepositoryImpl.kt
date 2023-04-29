@@ -1,5 +1,6 @@
 package com.delminiusdevs.elektra.data.repository
 
+import com.delminiusdevs.elektra.data.local.ElectraDatabase
 import com.delminiusdevs.elektra.data.mappers.toBranchOffice
 import com.delminiusdevs.elektra.data.remote.ElectraApi
 import com.delminiusdevs.elektra.domain.model.BranchOffice
@@ -13,7 +14,10 @@ import javax.inject.Inject
 
 class BranchesRepositoryImpl @Inject constructor(
     private val electraApi: ElectraApi,
+    private val electraDatabase: ElectraDatabase
 ) : BranchesRepository {
+
+    private val branchOfficeDao = electraDatabase.branchOfficeDao
 
     override suspend fun getAllBranches(): Flow<Resource<List<BranchOffice>>> = flow {
         emit(Resource.Loading(isLoading = true))
@@ -39,5 +43,9 @@ class BranchesRepositoryImpl @Inject constructor(
             )
             emit(Resource.Loading(isLoading = false))
         }
+    }
+
+    override suspend fun subscribeToBranchOffice(branchOffice: BranchOffice) {
+        
     }
 }
