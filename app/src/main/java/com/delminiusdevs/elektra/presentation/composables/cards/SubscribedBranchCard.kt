@@ -26,10 +26,10 @@ import com.delminiusdevs.elektra.presentation.ui.theme.SMALL_PADDING
 import com.delminiusdevs.elektra.presentation.ui.theme.TOP_APP_BAR_ICON_SIZE
 
 @Composable
-fun BranchCard(
+fun SubscribedBranchCard(
     modifier: Modifier = Modifier,
     branchOffice: BranchOffice,
-    onAddClicked: (BranchOffice) -> Unit,
+    onDeleteClicked: (BranchOffice) -> Unit,
 ) {
     Card(
         modifier = modifier
@@ -63,14 +63,14 @@ fun BranchCard(
             Spacer(modifier = Modifier.size(NORMAL_PADDING))
 
             IconButton(
-                onClick = { onAddClicked(branchOffice) }
+                onClick = { onDeleteClicked(branchOffice) }
             ) {
                 Icon(
                     modifier = Modifier
                         .size(TOP_APP_BAR_ICON_SIZE),
-                    painter = painterResource(id = R.drawable.ic_plus),
-                    contentDescription = "dodaj",
-                    tint = MaterialTheme.colorScheme.primary
+                    painter = painterResource(id = R.drawable.ic_delete),
+                    contentDescription = "izbrisi",
+                    tint = MaterialTheme.colorScheme.error
                 )
             }
 
