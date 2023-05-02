@@ -1,5 +1,6 @@
 package com.delminiusdevs.elektra.presentation.screens.branches.add_branches
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -13,6 +14,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.delminiusdevs.elektra.presentation.composables.appbar.NavigationAppbar
 import com.delminiusdevs.elektra.presentation.composables.cards.BranchCard
@@ -26,6 +28,7 @@ fun AddBranchesScreen(
     viewModel: AddBranchesViewModel = hiltViewModel(),
 ) {
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
+    val context = LocalContext.current
     val state = viewModel.state
 
     Scaffold(
@@ -67,16 +70,19 @@ fun AddBranchesScreen(
                                 .padding(horizontal = NORMAL_PADDING),
                             branchOffice = state.branches[index],
                             onAddClicked = { branch ->
-
+                                viewModel.onEvent(AddBranchEvent.OnSubscribeToBranch(branchOffice = branch))
+                                Toast.makeText(context, "${branch.name} dodana.", Toast.LENGTH_LONG)
+                                    .show()
                             }
                         )
-
                     }
 
                     item {
-                        Spacer(modifier = Modifier
-                            .height(NORMAL_PADDING)
-                            .width(NORMAL_PADDING))
+                        Spacer(
+                            modifier = Modifier
+                                .height(NORMAL_PADDING)
+                                .width(NORMAL_PADDING)
+                        )
                     }
                 }
             }

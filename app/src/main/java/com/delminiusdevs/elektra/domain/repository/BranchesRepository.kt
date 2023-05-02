@@ -9,4 +9,6 @@ interface BranchesRepository {
     suspend fun getAllBranches(): Flow<Resource<List<BranchOffice>>>
 
     suspend fun subscribeToBranchOffice(branchOffice: BranchOffice)
+
+    suspend fun getAllSubscribedBranches(): List<BranchOffice>
 }

@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.delminiusdevs.elektra.domain.model.BranchOffice
 import com.delminiusdevs.elektra.domain.use_cases.branches_use_cases.BranchesUseCases
 import com.delminiusdevs.elektra.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,6 +22,14 @@ class AddBranchesViewModel @Inject constructor(
 
     init {
         getAllBranches()
+    }
+
+    fun onEvent(event: AddBranchEvent) {
+        when (event) {
+            is AddBranchEvent.OnSubscribeToBranch -> {
+                subscribeToBranchOffice(branchOffice = event.branchOffice)
+            }
+        }
     }
 
     private fun getAllBranches() {
@@ -49,6 +58,12 @@ class AddBranchesViewModel @Inject constructor(
                     }
                 }
             }
+        }
+    }
+
+    private fun subscribeToBranchOffice(branchOffice: BranchOffice) {
+        viewModelScope.launch {
+            branchesUseCases.subscribeToBranchOfficeUseCase(branchOffice = branchOffice)
         }
     }
 

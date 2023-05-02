@@ -2,6 +2,7 @@ package com.delminiusdevs.elektra.data.repository
 
 import com.delminiusdevs.elektra.data.local.ElectraDatabase
 import com.delminiusdevs.elektra.data.mappers.toBranchOffice
+import com.delminiusdevs.elektra.data.mappers.toBranchOfficeDto
 import com.delminiusdevs.elektra.data.remote.ElectraApi
 import com.delminiusdevs.elektra.domain.model.BranchOffice
 import com.delminiusdevs.elektra.domain.repository.BranchesRepository
@@ -46,6 +47,8 @@ class BranchesRepositoryImpl @Inject constructor(
     }
 
     override suspend fun subscribeToBranchOffice(branchOffice: BranchOffice) {
-        
+        branchOfficeDao.insertBranchOfficeInDatabase(branchOffice = branchOffice.toBranchOfficeDto())
     }
+
+    override suspend fun getAllSubscribedBranches() = branchOfficeDao.getAllSavedBranchOffices()
 }
